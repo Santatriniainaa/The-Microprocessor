@@ -85,15 +85,6 @@ Ces chapitres utilisent un microcontrôleur abstrait (AM0) pour expliquer les p�
 
 ---
 
-## Ressources complémentaires
-
-- **Environnement de développement** : Keil MDK (version Community) avec le simulateur Cortex-M0. Voir l’annexe A pour l’installation et la configuration.
-- **Code de démarrage** : Fourni en annexe C, essentiel pour les exercices assembleur.
-- **Fichiers d’en-tête AM0** : Annexe D, pour la partie microcontrôleur.
-- **Site compagnon** : www.wiley.com/go/vasavada/Microprocessor (projets template, corrigés éventuels).
-
----
-
 ## Conseils pour une étude efficace
 
 1. **Progresser pas à pas** : Ne sautez pas d’exercice, chaque chapitre s’appuie sur le précédent.
@@ -114,6 +105,4 @@ Ces chapitres utilisent un microcontrôleur abstrait (AM0) pour expliquer les p�
 - **Semaine 10** : Chapitres 15 à 16 (types avancés, compilation).
 - **Semaines 11–12** : Chapitres 17 à 19 (microcontrôleur, applications).
 
-Ajustez selon votre rythme et vos disponibilités.
-
-Bonne étude !
+@Santatriniaina RAZAFINDRAKOTO

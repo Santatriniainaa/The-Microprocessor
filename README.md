@@ -1,111 +1,119 @@
-# Backlog complet pour "Le Microprocesseur : Introduction Pratique avec ARM Cortex-M0"
+# Plan d'étude pour le livre : *The Microprocessor: A Practical Introduction Using The Arm Cortex-M0 Processor*
 
-Ce backlog contient toutes les tâches et stories organisées par chapitre, prêtes à être importées dans Jira.
+Ce document propose un parcours structuré pour étudier le livre de Darshak S. Vasavada et S. K. Sinha. Il s’adresse aux débutants souhaitant comprendre le fonctionnement interne d’un microprocesseur, en particulier l’architecture ARM Cortex-M0, à la fois du point de vue matériel et logiciel.
 
-| ID | Titre | Description | Critères d'acceptation | Priorité | Story Points | Epic | Labels |
-|----|-------|-------------|------------------------|----------|--------------|------|--------|
-| 1.1 | Lire le Chapitre 1 | Lecture des pages 1 à 23 pour comprendre l'architecture matérielle de base. | - Connaître les composants d'un système à microprocesseur.<br>- Savoir différencier les types de mémoire.<br>- Comprendre le rôle des bus et des interruptions.<br>- Connaître l'organisation du Cortex-M0. | Haute | 1 | Partie 1 - Fondamentaux | lecture |
-| 1.2 | Quiz Chapitre 1 | Répondre à un questionnaire pour vérifier la compréhension des concepts clés. | - Obtenir un score ≥ 80% sur les questions portant sur le CPU, mémoire, bus, E/S, reset/horloge, et carte mémoire Cortex-M0. | Haute | 1 | Partie 1 - Fondamentaux | quiz |
-| 2.1 | Lire le Chapitre 2 | Lecture des pages 25 à 48 sur le jeu d'instructions et les registres. | - Lister les registres Cortex-M0 et leur rôle.<br>- Classifier les instructions (traitement, mémoire, contrôle).<br>- Comprendre le format d'une instruction et son encodage. | Haute | 1 | Partie 2 - Architecture et Assembleur | lecture |
-| 2.2 | Quiz Chapitre 2 | Évaluation sur les registres et les familles d'instructions. | - Score ≥ 80% sur les questions de registres et classification. | Haute | 1 | Partie 2 - Architecture et Assembleur | quiz |
-| 3.1 | Lire le Chapitre 3 | Lecture pages 49-70 sur le cycle d'exécution et le pipeline. | - Décrire les étapes fetch, decode, execute.<br>- Expliquer le pipeline à 3 étages.<br>- Comprendre le rôle des unités (UAL, LSU, PCU). | Haute | 1 | Partie 2 - Architecture et Assembleur | lecture |
-| 3.2 | Quiz Chapitre 3 | Questions sur le pipeline et l'exécution. | - Score ≥ 80%. | Haute | 1 | Partie 2 - Architecture et Assembleur | quiz |
-| 4.0 | Configurer l'environnement assembleur | Installer Keil MDK, créer un projet assembleur pour simulateur Cortex-M0, ajouter startup.s et mem.sct. | - Projet créé sans erreur.<br>- Simulation possible. | Haute | 2 | Partie 2 - Architecture et Assembleur | configuration |
-| 4.1 | Exercice 4.1 – Premier programme assembleur | Écrire un programme additionnant deux nombres et le faire tourner en simulation. | - Code assembleur correct (movs, adds).<br>- Observations des registres en debug. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,exercice |
-| 4.2 | Exercice 4.2 – Explorer les codes d'instruction | Analyser les codes machines des instructions movs, adds, subs. | - Identifier le pattern d'encodage.<br>- Comparer avec la théorie. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,exercice |
-| 4.3 | Exercice 4.3 – Accéder aux données en mémoire | Définir des variables en .data, .bss, .rodata et les utiliser dans un programme (y = m*x + c). | - Les variables sont correctement initialisées.<br>- Le résultat est visible en mémoire. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,exercice |
-| 5.1 | Exercice 5.1 – Addition | Écrire un programme utilisant ADDS et observer les flags. | - Les résultats sont corrects.<br>- Les flags N,Z sont observés. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,arithmétique |
-| 5.2 | Exercice 5.2 – Multiplication | Multiplier plusieurs fois et observer le débordement. | - Comprendre la limitation 32 bits. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,arithmétique |
-| 5.3 | Exercice 5.3 – Soustraction | Tester les nombres négatifs avec SUBS et NEGS. | - Observer la représentation en complément à 2. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,arithmétique |
-| 5.4 | Exercice 5.4 – Flags N et Z | Programme pour voir le comportement de N et Z. | - Les flags changent comme attendu. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,flags |
-| 5.5 | Exercice 5.5 – Carry et Overflow | Programmes pour générer carry et overflow, observer C et V. | - Carry set pour addition non signée débordante.<br>- V set pour addition signée débordante. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,flags |
-| 5.6 | Exercice 5.6 – Comparaison non signée | Implémenter une comparaison avec BLO, BHI. | - Le branchement correct selon les valeurs. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,comparaison |
-| 5.7 | Exercice 5.7 – Comparaison signée | Utiliser BLT, BGT avec nombres signés. | - Branchement correct. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,comparaison |
-| 6.1 | Exercice 6.1 – Opérations booléennes | Tester ANDS, ORRS, EORS, MVNS. | - Résultats cohérents. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,bit |
-| 6.2 | Exercice 6.2 – Mettre, effacer, tester des bits | Utiliser des masques pour set, clear, test. | - Les bits sont correctement manipulés. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,bit |
-| 6.3 | Exercice 6.3 – Décalage logique | LSL, LSR sur des nombres. | - Comprendre l'effet sur les bits. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,shift |
-| 6.4 | Exercice 6.4 – Décalage arithmétique | Comparer ASR et LSR sur nombres négatifs. | - ASR conserve le signe. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,shift |
-| 6.5 | Exercice 6.5 – Extension de taille | Utiliser SXTB, UXTB, SXTH, UXTH. | - Les extensions sont correctes (signe vs zéro). | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,extension |
-| 7.1 | Exercice 7.1 – Formats de données | Définir des byte, half-word, word et observer leur alignement. | - Alignement correct, padding visible. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,mémoire |
-| 7.2 | Exercice 7.2 – Endianness | Configurer le projet en little puis big-endian, observer l'ordre des octets. | - Comprendre la différence. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,endianness |
-| 7.3 | Exercice 7.3 – Chargement/stockage de base | Lire et écrire un word avec LDR/STR. | - Opération réussie. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,ldr-str |
-| 7.4 | Exercice 7.4 – Extension de signe | Charger des bytes/half-words signés et non signés. | - LDRB vs LDRSB, LDRH vs LDRSH. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,ldr-str |
-| 7.5 | Exercice 7.5 – Offset immédiat | Accéder à des membres de structure avec offset immédiat. | - Calcul des offsets corrects. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,adressage |
-| 7.6 | Exercice 7.6 – Offset registre | Accéder à un tableau avec un index variable. | - Boucle d'initialisation fonctionnelle. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,adressage |
-| 8.1 | Exercice 8.1 – Sauts inconditionnels | Programme avec des B pour sauter entre labels. | - Le flux de programme est modifié comme attendu. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,branchement |
-| 8.2 | Exercice 8.2 – if-else | Implémenter un max(a,b) avec CMP et BGT. | - Le résultat correct selon les valeurs. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,branchement |
-| 8.3 | Exercice 8.3 – Boucle (calcul de longueur de chaîne) | Parcourir une chaîne jusqu'au null. | - Compteur correct. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,boucle |
-| 8.4 | Exercice 8.4 – Branchement indirect et table de saut | Calculatrice avec sélection par code. | - L'opération choisie est exécutée. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,branchement |
-| 8.5 | Exercice 8.5 – Sous-programme simple | Fonction linéaire appelée depuis main. | - LR utilisé, retour correct. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,sous-programme |
-| 9.1 | Exercice 9.1 – Où est la pile ? | Observer SP après reset et le contenu de l'adresse 0. | - SP initial = valeur à 0x00000000. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,pile |
-| 9.2 | Exercice 9.2 – PUSH et POP simples | Pousser et dépiler un registre. | - SP varie correctement, valeur restaurée. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,pile |
-| 9.3 | Exercice 9.3 – Sauvegarde de registres | Reprendre l'exercice 8.6, sauver R7 dans la fonction. | - R7 n'est plus corrompu après retour. | Haute | 2 | Partie 2 - Architecture et Assembleur | assembleur,pile |
-| 9.4 | Exercice 9.4 – Sous-programmes imbriqués | Sauvegarder LR sur la pile dans func1. | - Retour correct à asm_main. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,pile |
-| 9.5 | Exercice 9.5 – Variables locales sur la pile | Allouer de l'espace pour des variables locales et y accéder. | - Les valeurs sont stockées et récupérées correctement. | Haute | 3 | Partie 2 - Architecture et Assembleur | assembleur,pile |
-| 10.1 | Exercice 10.1 – Créer une table des vecteurs | Écrire un fichier startup.s avec vector table et handlers simples (boucle infinie). | - La table est à l'adresse 0. | Haute | 3 | Partie 3 - Exceptions et interruptions | assembleur,exception |
-| 10.2 | Exercice 10.2 – Reset handler et appel à main | Modifier le reset handler pour appeler asm_main. | - Le programme s'exécute et revient. | Haute | 2 | Partie 3 - Exceptions et interruptions | assembleur,exception |
-| 10.3 | Exercice 10.3 – Provoquer une HardFault | Accéder à une adresse non alignée. | - Le programme saute dans HardFault_Handler. | Haute | 2 | Partie 3 - Exceptions et interruptions | assembleur,exception |
-| 10.4 | Exercice 10.4 – Observer la stack frame | Regarder la mémoire après une exception, identifier les registres sauvegardés. | - La stack frame contient R0-R3, R12, LR, PC, xPSR. | Haute | 3 | Partie 3 - Exceptions et interruptions | assembleur,exception |
-| 11.1 | Exercice 11.1 – SysTick en action | Configurer SysTick en mode free-running avec petite valeur, observer le compteur. | - SYST_CVR décrémente. | Haute | 2 | Partie 3 - Exceptions et interruptions | assembleur,systick |
-| 11.2 | Exercice 11.2 – Polling avec SysTick | Écrire une fonction d'attente timerDelay. | - La fonction attend le nombre de ticks spécifié. | Haute | 2 | Partie 3 - Exceptions et interruptions | assembleur,systick |
-| 11.3 | Exercice 11.3 – SysTick avec interruption | Activer l'interruption SysTick, écrire un handler qui compte. | - Le handler est appelé périodiquement. | Haute | 3 | Partie 3 - Exceptions et interruptions | assembleur,systick |
-| 11.4 | Exercice 11.4 – Masquage des interruptions | Utiliser PRIMASK pour masquer les interruptions, puis les réactiver. | - L'interruption est pendante puis servie après démasquage. | Haute | 3 | Partie 3 - Exceptions et interruptions | assembleur,interruption |
-| 11.5 | Exercice 11.5 – NMI | Déclencher NMI par logiciel (ICSR). | - Le handler NMI s'exécute même si PRIMASK est set. | Haute | 3 | Partie 3 - Exceptions et interruptions | assembleur,nmi |
-| 12.0 | Configurer environnement C | Créer un projet C avec CMSIS (startup_ARMCM0.c, system_ARMCM0.c). | - Compilation réussie. | Haute | 2 | Partie 4 - Programmation C | configuration,c |
-| 12.1 | Exercice 12.1 – Appel de fonction | Écrire une fonction square() et l'appeler depuis main. | - Observer l'appel en désassemblage. | Haute | 2 | Partie 4 - Programmation C | c,fonction |
-| 12.2 | Exercice 12.2 – Variables globales | Ajouter un compteur global incrémenté par des fonctions. | - Le compteur s'incrémente. | Haute | 2 | Partie 4 - Programmation C | c,variables |
-| 12.3 | Exercice 12.3 – Variables locales | Utiliser des variables locales dans une fonction. | - Observer leur allocation (pile ou registres). | Haute | 2 | Partie 4 - Programmation C | c,variables |
-| 12.4 | Exercice 12.4 – Déclaration de fonction | Montrer l'importance du prototype (cas d'erreur de type). | - Comprendre pourquoi le prototype est nécessaire. | Haute | 2 | Partie 4 - Programmation C | c,fonction |
-| 12.5 | Exercice 12.5 – Fichier d'en-tête | Créer un .h avec prototype, l'inclure dans plusieurs .c. | - Le programme compile et s'exécute correctement. | Haute | 2 | Partie 4 - Programmation C | c,header |
-| 13.1 | Exercice 13.1 – Caractères | Définir des char, observer leur stockage (ASCII). | - 'A' = 0x41 en mémoire. | Haute | 2 | Partie 4 - Programmation C | c,types |
-| 13.2 | Exercice 13.2 – Chaînes | Définir des chaînes, observer le null terminator. | - La chaîne se termine par 0. | Haute | 2 | Partie 4 - Programmation C | c,strings |
-| 13.3 | Exercice 13.3 – Types entiers | Définir signed/unsigned de différentes tailles, observer les plages. | - Les valeurs sont correctes en mémoire. | Haute | 2 | Partie 4 - Programmation C | c,types |
-| 13.4 | Exercice 13.4 – Endianness et alignement | Vérifier l'alignement et l'endianness en C. | - Les octets sont dans l'ordre little-endian. | Haute | 2 | Partie 4 - Programmation C | c,mémoire |
-| 13.5 | Exercice 13.5 – Addition | Addition simple, observer le code assembleur généré. | - Le code utilise ADD. | Haute | 2 | Partie 4 - Programmation C | c,arithmétique |
-| 13.6 | Exercice 13.6 – Signe et extension | Affecter un signed char à un int, observer l'extension de signe. | - L'extension est correcte (LDRSB vs LDRB). | Haute | 2 | Partie 4 - Programmation C | c,conversion |
-| 13.7 | Exercice 13.7 – Représentation flottante | Définir des float, observer leur format IEEE754. | - 25.0 = 0x41C80000 en mémoire. | Haute | 2 | Partie 4 - Programmation C | c,flottant |
-| 13.8 | Exercice 13.8 – Addition flottante | Ajouter deux float, observer l'appel de bibliothèque. | - Le code appelle __aeabi_fadd. | Haute | 3 | Partie 4 - Programmation C | c,flottant |
-| 13.9 | Exercice 13.9 – Conversion de type | Tester des conversions implicites/explicites. | - Les conversions sont correctes. | Haute | 2 | Partie 4 - Programmation C | c,conversion |
-| 14.1 | Exercice 14.1 – Appel de fonction | Analyser le code généré pour un appel simple. | - BL et retour BX LR. | Haute | 2 | Partie 4 - Programmation C | c,fonction |
-| 14.2 | Exercice 14.2 – Arguments dans registres | Fonction avec 3 arguments, observer R0-R3. | - Les arguments sont passés dans R0,R1,R2. | Haute | 2 | Partie 4 - Programmation C | c,fonction |
-| 14.3 | Exercice 14.3 – Variables locales | Fonction avec variables locales, observer la gestion de la pile. | - SUB sp pour allocation. | Haute | 3 | Partie 4 - Programmation C | c,pile |
-| 14.4 | Exercice 14.4 – Exécution conditionnelle | if-else, observer le code avec CMP et Bcc. | - Le bon bloc est exécuté. | Haute | 2 | Partie 4 - Programmation C | c,contrôle |
-| 14.5 | Exercice 14.5 – switch-case | Observer la génération d'une table de saut. | - Le code utilise un branchement indirect. | Haute | 3 | Partie 4 - Programmation C | c,contrôle |
-| 14.6 | Exercice 14.6 – Boucle for | Analyser la boucle for. | - Initialisation, condition, incrément. | Haute | 2 | Partie 4 - Programmation C | c,boucle |
-| 15.1 | Exercice 15.1 – Tableaux | Définir un tableau et y accéder. | - L'accès utilise base + offset. | Haute | 2 | Partie 4 - Programmation C | c,tableau |
-| 15.2 | Exercice 15.2 – Structures | Définir une structure, observer le padding. | - Taille avec padding, alignement. | Haute | 2 | Partie 4 - Programmation C | c,structure |
-| 15.3 | Exercice 15.3 – Pointeur comme adresse fixe | Écrire à une adresse fixe via pointeur. | - La valeur est écrite à l'adresse. | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.4 | Exercice 15.4 – Pointeurs | Pointeur pointant vers une variable. | - *p modifie la variable. | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.5 | Exercice 15.5 – Tableaux et pointeurs | Montrer l'équivalence a[i] et *(a+i). | - Le code assembleur est similaire. | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.6 | Exercice 15.6 – Pointeur sur structure | Utiliser -> pour accéder aux membres. | - Le code utilise offset. | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.7 | Exercice 15.7 – Arithmétique des pointeurs | Incrémenter un pointeur, observer l'incrément selon le type. | - p++ ajoute sizeof(type). | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.8 | Exercice 15.8 – Accès à un pointeur NULL | Lire via un pointeur nul (statique). | - Observe la valeur à l'adresse 0. | Haute | 2 | Partie 4 - Programmation C | c,pointeur |
-| 15.9 | Exercice 15.9 – Pointeur non initialisé | Utiliser un pointeur local non initialisé (provoquer une HardFault). | - Comportement imprévisible, comprendre le danger. | Haute | 3 | Partie 4 - Programmation C | c,pointeur |
-| 16.1 | Exercice 16.1 – Prétraitement | Activer la génération du listing préprocesseur, observer le fichier .i. | - Les macros sont remplacées, les #include expansés. | Haute | 2 | Partie 4 - Programmation C | c,compilation |
-| 16.2 | Exercice 16.2 – Déclarations | Inclure des headers sans code, vérifier que la taille du programme ne change pas. | - Aucune augmentation de code. | Haute | 2 | Partie 4 - Programmation C | c,compilation |
-| 16.3 | Exercice 16.3 – Définitions | Compiler un fichier avec des définitions de données, observer le .map. | - Les sections sont présentes. | Haute | 2 | Partie 4 - Programmation C | c,compilation |
-| 16.4 | Exercice 16.4 – Traduction (assemblage) | Observer le fichier objet (.o) via fromelf ou désassemblage. | - Les codes machines sont là. | Haute | 3 | Partie 4 - Programmation C | c,compilation |
-| 16.5 | Exercice 16.5 – Fichier de map | Analyser le fichier .map généré : symboles, adresses, tailles. | - Retrouver les adresses de main, variables, etc. | Haute | 3 | Partie 4 - Programmation C | c,compilation |
-| 17.1 | Lecture Chapitre 17 | Lire pages 367-391 sur l'AM0. | - Connaître les périphériques de l'AM0.<br>- Comprendre le mapping des registres. | Haute | 1 | Partie 5 - Microcontrôleur et Applications | lecture |
-| 17.2 | Quiz Chapitre 17 | Questions sur l'architecture AM0, NVIC, registres. | - Score ≥ 80%. | Haute | 1 | Partie 5 - Microcontrôleur et Applications | quiz |
-| 18.1 | Implémenter API GPIO | Écrire digitalRead, digitalWrite en manipulant GPIO_DIR et GPIO_DAT. | - Les fonctions permettent de lire/écrire sur les pins. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | api,gpio |
-| 18.2 | Exemple GPIO – LED et bouton | Câbler (simuler) une LED sur P1, un bouton sur P0, écrire programme qui allume la LED quand bouton appuyé. | - La LED s'allume à l'appui. | Haute | 2 | Partie 5 - Microcontrôleur et Applications | exemple,gpio |
-| 18.3 | Implémenter API Timer | Écrire timerDelay basé sur TIMER_CSR, TIMER_RVR, TIMER_CVR. | - La fonction attend le bon nombre de µs. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | api,timer |
-| 18.4 | Exemple Timer – Clignotement LED | Faire clignoter la LED toutes les 500 ms avec timerDelay. | - La LED clignote. | Haute | 2 | Partie 5 - Microcontrôleur et Applications | exemple,timer |
-| 18.5 | Implémenter API ADC | Lire ADC_DAT. | - analogRead retourne la valeur. | Haute | 2 | Partie 5 - Microcontrôleur et Applications | api,adc |
-| 18.6 | Exemple ADC – Contrôle de luminosité | Lire une valeur ADC et ajuster la période de clignotement. | - La vitesse de clignotement varie avec l'entrée ADC. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | exemple,adc |
-| 18.7 | Implémenter API DAC | Écrire DAC_DAT. | - analogWrite produit une tension. | Haute | 2 | Partie 5 - Microcontrôleur et Applications | api,dac |
-| 18.8 | Exemple DAC – Génération d'onde sinusoïdale | Générer une sinusoïde 1 kHz avec table et timer. | - Signal observable sur oscilloscope (simulé). | Haute | 3 | Partie 5 - Microcontrôleur et Applications | exemple,dac |
-| 18.9 | Implémenter API UART | Configurer baudrate via UART_CSR, écrire serialTransmit et serialReceive. | - Transmission et réception fonctionnent. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | api,uart |
-| 18.10 | Exemple UART – Écho | Programme qui répète les caractères reçus. | - Les caractères tapés sont renvoyés. | Haute | 2 | Partie 5 - Microcontrôleur et Applications | exemple,uart |
-| 18.11 | API Interruptions | Écrire digitalInterruptEnable et timerInterruptEnable avec NVIC. | - Les interruptions peuvent être activées. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | api,interrupt |
-| 18.12 | Exemple interruption GPIO | Basculer LED sur front descendant du bouton via handler. | - La LED change d'état à chaque pression. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | exemple,interrupt |
-| 18.13 | Exemple interruption Timer | Faire clignoter LED avec interruption timer périodique. | - La LED clignote sans polling. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | exemple,interrupt |
-| 19.1 | LED Brightness Controller (PWM logiciel) | Contrôler la luminosité d'une LED par variation du rapport cyclique à 50 Hz, avec bouton pour changer le niveau. | - La luminosité perçue change. | Haute | 5 | Partie 5 - Microcontrôleur et Applications | projet,pwm |
-| 19.2 | Ambient Light Sensor | Utiliser un LDR (simulé par ADC) pour ajuster automatiquement la luminosité de la LED. | - La LED s'adapte à la lumière ambiante. | Haute | 5 | Partie 5 - Microcontrôleur et Applications | projet,adc |
-| 19.3 | Version basse consommation | Reprendre 19.2 avec interruptions timer et mode WFI. | - Le processeur dort entre les interruptions. | Haute | 3 | Partie 5 - Microcontrôleur et Applications | projet,sommeil |
-| 19.4 | Temperature Monitoring | Lire un capteur de température simulé (ADC) toutes les minutes, envoyer la valeur en UART. | - Les valeurs sont transmises périodiquement. | Haute | 4 | Partie 5 - Microcontrôleur et Applications | projet,uart |
-| 19.5 | Motor Speed Control (simulation) | Simuler un codeur incrémental sur GPIO, mesurer la vitesse, ajuster la sortie DAC pour asservir la vitesse. | - La vitesse mesurée converge vers la consigne. | Haute | 5 | Partie 5 - Microcontrôleur et Applications | projet,asservissement |
-| T0 | Installer Keil MDK | Télécharger et installer Keil MDK (version récente). | - Installation réussie. | Haute | 1 | Configuration | outils |
-| T1 | Configurer le dépôt Git | Créer un dépôt pour versionner tous les codes des exercices. | - Dépôt créé et code initial commité. | Moyenne | 1 | Configuration | outils |
-| T2 | Rédiger un journal d'apprentissage | Tenir un journal des observations pour chaque exercice. | - Journal tenu à jour. | Basse | 0 | Suivi | documentation |
+---
+
+## Prérequis
+- Connaissances de base en électronique numérique (bits, octets, logique binaire).
+- Notions élémentaires de programmation (variables, boucles, fonctions) seraient un plus, mais le livre reprend les bases.
+
+---
+
+## Structure générale du livre
+Le livre se divise en quatre grandes parties :
+
+1. **Fondamentaux du microprocesseur** (chapitres 1 à 3) – architecture, exécution des instructions.
+2. **Programmation assembleur ARM Cortex-M0** (chapitres 4 à 11) – instructions, branchements, pile, exceptions.
+3. **Programmation en C pour systèmes embarqués** (chapitres 12 à 16) – types de données, fonctions, compilation.
+4. **Microcontrôleur et applications** (chapitres 17 à 19) – périphériques, entrées-sorties, exemples concrets.
+
+Les annexes fournissent des informations complémentaires sur l’environnement de développement, le code de démarrage, etc.
+
+---
+
+## Plan d’étude détaillé
+
+### Partie 1 : Les bases du microprocesseur (Chapitres 1–3)
+
+| Chapitre | Sujet | Objectifs d’apprentissage | Exercices clés |
+|----------|-------|---------------------------|----------------|
+| 1 | Microprocessor System | Comprendre les composants d’un système à microprocesseur : CPU, mémoire, bus, ports E/S, horloge, reset. | Aucun exercice pratique dans ce chapitre, mais il pose les bases. |
+| 2 | Instruction Set Architecture | Découvrir les registres du Cortex-M0, le jeu d’instructions (arithmétique, mémoire, contrôle), la structure des instructions. | Observer les formats d’instructions et leur encodage. |
+| 3 | Program Execution | Savoir comment une instruction est fetchée, décodée et exécutée dans une architecture RISC, y compris le pipeline. | Suivre le déroulement d’un programme simple dans le simulateur. |
+
+**Conseil** : Pour le chapitre 3, utiliser le simulateur Keil pour visualiser l’exécution pas à pas et les changements dans les registres.
+
+---
+
+### Partie 2 : Programmation en assembleur (Chapitres 4–11)
+
+Chaque chapitre de cette partie propose plusieurs exercices pratiques. Il est essentiel de les réaliser dans l’ordre.
+
+| Chapitre | Sujet | Concepts abordés | Exercices |
+|----------|-------|------------------|-----------|
+| 4 | Assembly Programming | Structure d’un programme assembleur : directives, sections, labels, premier programme. | 4.1 à 4.3 : création d’un projet, premier programme, accès mémoire. |
+| 5 | Arithmetic Operations | Instructions arithmétiques, nombres signés/non signés, flags APSR, comparaisons. | 5.1 à 5.7 : additions, multiplications, tests de flags. |
+| 6 | Bit-Level Operations | Opérations booléennes, manipulation de bits, décalages, extension de mot. | 6.1 à 6.5 : ET/OU, décalages logiques/arithmétiques, extensions. |
+| 7 | Load and Store Operations | Alignement, endianness, accès mémoire (byte, half-word, word), adressage avec offset. | 7.1 à 7.6 : visualisation des données, accès avec offset. |
+| 8 | Branch and Subroutine | Branchements conditionnels et inconditionnels, appels de sous-programmes. | 8.1 à 8.5 : boucles, sous-programmes, imbrication. |
+| 9 | Stack Operations | Rôle de la pile, instructions PUSH/POP, frames de pile, variables locales. | 9.1 à 9.5 : observation de la pile, sauvegarde de registres. |
+| 10 | Exceptions | Modèle d’exception, table des vecteurs, reset, HardFault, empilement d’exception. | 10.1 à 10.4 : écriture d’un vecteur, déclenchement d’une faute. |
+| 11 | SysTick and Core Interrupts | Timer SysTick, interruptions, masquage, NMI. | 11.1 à 11.5 : programmation du timer, interruption, masquage. |
+
+**Remarque** : Les exercices se font avec le simulateur intégré de Keil MDK. Un modèle de projet est fourni sur le site compagnon.
+
+---
+
+### Partie 3 : Programmation en C (Chapitres 12–16)
+
+Ces chapitres montrent comment les constructions du langage C sont traduites en assembleur Cortex-M0. Il est utile de compiler les exemples et d’examiner le code désassemblé.
+
+| Chapitre | Sujet | Points clés | Exercices |
+|----------|-------|-------------|-----------|
+| 12 | Introduction to C Programming | Structure d’un programme C, fonctions, variables, fichiers d’en-tête. | 12.1 à 12.5 : création de projet C, appels de fonctions, variables globales/locales, utilisation de header. |
+| 13 | Basic Data Types | Types char, int, float, représentation, endianness, opérations arithmétiques et bit à bit. | 13.1 à 13.9 : affichage en mémoire, opérations sur entiers et flottants, transtypage. |
+| 14 | Functions | Passage d’arguments, retour, variables locales, branchements conditionnels, boucles. | 14.1 à 14.6 : analyse du code généré pour if, for, switch. |
+| 15 | Extended Data Types | Tableaux, structures, pointeurs, arithmétique de pointeurs. | 15.1 à 15.9 : accès aux tableaux, structures, pointeurs non initialisés. |
+| 16 | Compilation Process | Préprocessing, compilation, assemblage, édition de liens, fichier map. | 16.1 à 16.5 : observation des fichiers intermédiaires, map file. |
+
+**Conseil** : Comparer systématiquement le code C avec le désassemblage pour bien comprendre la génération de code.
+
+---
+
+### Partie 4 : Microcontrôleur et applications (Chapitres 17–19)
+
+Ces chapitres utilisent un microcontrôleur abstrait (AM0) pour expliquer les périphériques et la programmation d’entrées-sorties.
+
+| Chapitre | Sujet | Contenu | Exemples |
+|----------|-------|---------|----------|
+| 17 | Microcontroller | Schéma bloc, horloge, gestion d’alimentation, registres périphériques, API de bas niveau. | Définition des registres, accès via pointeurs. |
+| 18 | IO Programming | Programmation des GPIO, timer, ADC, DAC, UART, interruptions. | 18.1 à 18.6 : lecture de bouton, clignotement de LED, conversion analogique, communication série. |
+| 19 | Microprocessor Applications | Applications réelles : contrôle de luminosité de LED, capteur de lumière, mesure de température, régulation de moteur. | Codes complets intégrant capteurs, actionneurs et gestion d’énergie. |
+
+**Note** : Ces exemples ne tournent pas sur le simulateur mais peuvent être portés sur une carte réelle. Ils illustrent les concepts clés des systèmes embarqués.
+
+---
+
+## Ressources complémentaires
+
+- **Environnement de développement** : Keil MDK (version Community) avec le simulateur Cortex-M0. Voir l’annexe A pour l’installation et la configuration.
+- **Code de démarrage** : Fourni en annexe C, essentiel pour les exercices assembleur.
+- **Fichiers d’en-tête AM0** : Annexe D, pour la partie microcontrôleur.
+- **Site compagnon** : www.wiley.com/go/vasavada/Microprocessor (projets template, corrigés éventuels).
+
+---
+
+## Conseils pour une étude efficace
+
+1. **Progresser pas à pas** : Ne sautez pas d’exercice, chaque chapitre s’appuie sur le précédent.
+2. **Expérimenter** : Modifiez les programmes, changez les valeurs, observez les résultats dans les registres et la mémoire.
+3. **Utiliser le simulateur** : Il permet de visualiser en détail l’exécution sans matériel.
+4. **Prendre des notes** : Sur les flags, les modes d’adressage, les conventions d’appel (AAPCS).
+5. **Pour la partie C** : Compilez avec différentes optimisations (-O0, -Os) et observez les différences dans le code assembleur généré.
+
+---
+
+## Calendrier indicatif
+
+- **Semaines 1–2** : Chapitres 1 à 4 (bases et premier assembleur).
+- **Semaines 3–4** : Chapitres 5 à 7 (arithmétique, bits, chargement).
+- **Semaines 5–6** : Chapitres 8 à 9 (branchements, pile).
+- **Semaine 7** : Chapitres 10 à 11 (exceptions, interruptions).
+- **Semaines 8–9** : Chapitres 12 à 14 (C : bases, fonctions).
+- **Semaine 10** : Chapitres 15 à 16 (types avancés, compilation).
+- **Semaines 11–12** : Chapitres 17 à 19 (microcontrôleur, applications).
+
+Ajustez selon votre rythme et vos disponibilités.
+
+Bonne étude !

@@ -1,4 +1,4 @@
-#*The Microprocessor: A Practical Introduction Using The Arm Cortex-M0 Processor*
+# *The Microprocessor: A Practical Introduction Using The Arm Cortex-M0 Processor*
 
 Ce document propose un parcours structuré pour étudier le livre de Darshak S. Vasavada et S. K. Sinha. Il s’adresse aux débutants souhaitant comprendre le fonctionnement interne d’un microprocesseur, en particulier l’architecture ARM Cortex-M0, à la fois du point de vue matériel et logiciel.
 

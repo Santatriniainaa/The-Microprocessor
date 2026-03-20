@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#334155"/></marker>
+    <marker id="ag" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#16a34a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#dc2626"/></marker>
+    <filter id="sh"><feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+
+  <rect width="1000" height="650" rx="12" fill="#f1f5f9"/>
+  <rect width="1000" height="50" rx="12" fill="#1e293b"/>
+  <rect y="38" width="1000" height="12" fill="#1e293b"/>
+  <text x="500" y="34" text-anchor="middle" fill="white" font-size="18" font-weight="bold">Machine à États Finis (FSM) — Gestionnaire d'Énergie</text>
+
+  <!-- STATE: STARTUP -->
+  <g filter="url(#sh)">
+    <rect x="80" y="90" width="180" height="100" rx="14" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>
+    <text x="170" y="118" text-anchor="middle" fill="#4338ca" font-size="15" font-weight="bold">STARTUP</text>
+    <line x1="100" y1="128" x2="240" y2="128" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+    <text x="170" y="148" text-anchor="middle" fill="#4f46e5" font-size="11">Toutes charges OFF</text>
+    <text x="170" y="165" text-anchor="middle" fill="#4f46e5" font-size="11">LED verte clignotante</text>
+    <text x="170" y="182" text-anchor="middle" fill="#6366f1" font-size="10">Durée: 2 secondes</text>
+  </g>
+
+  <!-- STATE: NORMAL -->
+  <g filter="url(#sh)">
+    <rect x="400" y="90" width="200" height="110" rx="14" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+    <circle cx="420" cy="112" r="8" fill="#22c55e"/>
+    <text x="510" y="118" text-anchor="middle" fill="#166534" font-size="16" font-weight="bold">NORMAL</text>
+    <line x1="420" y1="130" x2="580" y2="130" stroke="#22c55e" stroke-width="1" opacity="0.3"/>
+    <text x="500" y="150" text-anchor="middle" fill="#15803d" font-size="11">✓ Charge 1: ON (Éclairage)</text>
+    <text x="500" y="167" text-anchor="middle" fill="#15803d" font-size="11">✓ Charge 2: ON (Chargeur)</text>
+    <text x="500" y="184" text-anchor="middle" fill="#15803d" font-size="11">✓ Charge 3: ON (Radio/TV)</text>
+  </g>
+
+  <!-- STATE: LOW_BAT -->
+  <g filter="url(#sh)">
+    <rect x="400" y="270" width="200" height="110" rx="14" fill="#fef9c3" stroke="#eab308" stroke-width="2.5"/>
+    <circle cx="420" cy="292" r="8" fill="#eab308"/>
+    <text x="510" y="298" text-anchor="middle" fill="#854d0e" font-size="16" font-weight="bold">LOW_BAT</text>
+    <line x1="420" y1="310" x2="580" y2="310" stroke="#eab308" stroke-width="1" opacity="0.3"/>
+    <text x="500" y="330" text-anchor="middle" fill="#a16207" font-size="11">✓ Charge 1: ON</text>
+    <text x="500" y="347" text-anchor="middle" fill="#a16207" font-size="11">✓ Charge 2: ON</text>
+    <text x="500" y="364" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">✗ Charge 3: OFF</text>
+  </g>
+
+  <!-- STATE: CRITICAL -->
+  <g filter="url(#sh)">
+    <rect x="400" y="450" width="200" height="110" rx="14" fill="#fee2e2" stroke="#ef4444" stroke-width="2.5"/>
+    <circle cx="420" cy="472" r="8" fill="#ef4444"/>
+    <text x="510" y="478" text-anchor="middle" fill="#991b1b" font-size="16" font-weight="bold">CRITICAL</text>
+    <line x1="420" y1="490" x2="580" y2="490" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+    <text x="500" y="510" text-anchor="middle" fill="#b91c1c" font-size="11">✓ Charge 1: ON</text>
+    <text x="500" y="527" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">✗ Charge 2: OFF</text>
+    <text x="500" y="544" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="bold">✗ Charge 3: OFF</text>
+  </g>
+
+  <!-- STATE: SHUTDOWN -->
+  <g filter="url(#sh)">
+    <rect x="750" y="350" width="200" height="110" rx="14" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <text x="850" y="383" text-anchor="middle" fill="#f87171" font-size="16" font-weight="bold">SHUTDOWN</text>
+    <line x1="770" y1="393" x2="930" y2="393" stroke="#475569" stroke-width="1" opacity="0.3"/>
+    <text x="850" y="413" text-anchor="middle" fill="#94a3b8" font-size="11">✗ Toutes charges OFF</text>
+    <text x="850" y="430" text-anchor="middle" fill="#94a3b8" font-size="11">LED rouge clignotante</text>
+    <text x="850" y="447" text-anchor="middle" fill="#64748b" font-size="10">Économie maximale</text>
+  </g>
+
+  <!-- STATE: FAULT -->
+  <g filter="url(#sh)">
+    <rect x="750" y="170" width="200" height="80" rx="14" fill="#450a0a" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <text x="850" y="203" text-anchor="middle" fill="#fca5a5" font-size="16" font-weight="bold">⚠ FAULT</text>
+    <text x="850" y="225" text-anchor="middle" fill="#f87171" font-size="11">Erreur matérielle</text>
+    <text x="850" y="242" text-anchor="middle" fill="#ef4444" font-size="10">Reset manuel requis</text>
+  </g>
+
+  <!-- TRANSITIONS -->
+  <!-- STARTUP → NORMAL -->
+  <line x1="260" y1="135" x2="395" y2="135" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)"/>
+  <rect x="282" y="115" width="95" height="18" rx="3" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="330" y="128" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="bold">SOC > 30%</text>
+
+  <!-- STARTUP → LOW_BAT -->
+  <path d="M 170 190 Q 170 325 395 325" fill="none" stroke="#eab308" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="200" y="248" width="95" height="18" rx="3" fill="white" stroke="#eab308" stroke-width="1"/>
+  <text x="248" y="261" text-anchor="middle" fill="#a16207" font-size="9" font-weight="bold">SOC ≤ 30%</text>
+
+  <!-- NORMAL → LOW_BAT -->
+  <line x1="480" y1="200" x2="480" y2="265" stroke="#eab308" stroke-width="2.5" marker-end="url(#a)"/>
+  <rect x="488" y="222" width="95" height="18" rx="3" fill="white" stroke="#dc2626" stroke-width="1"/>
+  <text x="536" y="235" text-anchor="middle" fill="#dc2626" font-size="9" font-weight="bold">SOC &lt; 30%</text>
+
+  <!-- LOW_BAT → NORMAL (hysteresis) -->
+  <line x1="530" y1="270" x2="530" y2="205" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)" stroke-dasharray="5,3"/>
+  <rect x="537" y="228" width="100" height="18" rx="3" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="587" y="241" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="bold">SOC > 40% ↑</text>
+
+  <!-- LOW_BAT → CRITICAL -->
+  <line x1="480" y1="380" x2="480" y2="445" stroke="#ef4444" stroke-width="2.5" marker-end="url(#ar)"/>
+  <rect x="488" y="402" width="95" height="18" rx="3" fill="white" stroke="#dc2626" stroke-width="1"/>
+  <text x="536" y="415" text-anchor="middle" fill="#dc2626" font-size="9" font-weight="bold">SOC &lt; 10%</text>
+
+  <!-- CRITICAL → LOW_BAT (hysteresis) -->
+  <line x1="530" y1="450" x2="530" y2="385" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)" stroke-dasharray="5,3"/>
+  <rect x="537" y="408" width="100" height="18" rx="3" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="587" y="421" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="bold">SOC > 20% ↑</text>
+
+  <!-- CRITICAL → SHUTDOWN -->
+  <line x1="600" y1="510" x2="745" y2="430" stroke="#475569" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="630" y="455" width="110" height="18" rx="3" fill="white" stroke="#475569" stroke-width="1"/>
+  <text x="685" y="468" text-anchor="middle" fill="#475569" font-size="9" font-weight="bold">Vbat &lt; 10.5V</text>
+
+  <!-- SHUTDOWN → CRITICAL (wake up) -->
+  <path d="M 750 395 Q 680 500 605 500" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#ag)" stroke-dasharray="5,3"/>
+  <rect x="640" y="505" width="135" height="18" rx="3" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="708" y="518" text-anchor="middle" fill="#16a34a" font-size="9" font-weight="bold">☀ Soleil + Vbat↑</text>
+
+  <!-- Legend -->
+  <g transform="translate(30, 530)">
+    <rect width="300" height="100" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="22" fill="#1e293b" font-size="12" font-weight="bold">Légende</text>
+    <line x1="15" y1="32" x2="120" y2="32" stroke="#22c55e" stroke-width="2.5"/>
+    <text x="130" y="37" fill="#334155" font-size="10">Transition montée (amélioration)</text>
+    <line x1="15" y1="52" x2="120" y2="52" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="130" y="57" fill="#334155" font-size="10">Transition descente (dégradation)</text>
+    <line x1="15" y1="72" x2="120" y2="72" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="130" y="77" fill="#334155" font-size="10">Hystérésis (seuil + 10%)</text>
+    <circle cx="22" cy="90" r="6" fill="#22c55e"/><text x="35" y="94" fill="#334155" font-size="10">OK</text>
+    <circle cx="72" cy="90" r="6" fill="#eab308"/><text x="85" y="94" fill="#334155" font-size="10">Warning</text>
+    <circle cx="142" cy="90" r="6" fill="#ef4444"/><text x="155" y="94" fill="#334155" font-size="10">Critique</text>
+  </g>
+
+  <!-- SOC Scale -->
+  <g transform="translate(750, 530)">
+    <rect width="220" height="100" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="110" y="20" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">Échelle SOC Batterie</text>
+    <rect x="15" y="32" width="190" height="20" rx="4" fill="#e2e8f0"/>
+    <rect x="15" y="32" width="19" height="20" rx="4" fill="#dc2626"/><text x="24" y="46" text-anchor="middle" fill="white" font-size="8" font-weight="bold">0</text>
+    <rect x="34" y="32" width="19" height="20" fill="#ef4444"/><text x="43" y="46" text-anchor="middle" fill="white" font-size="8">10</text>
+    <rect x="53" y="32" width="38" height="20" fill="#f59e0b"/><text x="72" y="46" text-anchor="middle" fill="white" font-size="8">20-30</text>
+    <rect x="91" y="32" width="38" height="20" fill="#eab308"/>
+    <rect x="129" y="32" width="76" height="20" rx="0" fill="#22c55e"/><text x="167" y="46" text-anchor="middle" fill="white" font-size="8">40-100</text>
+    <text x="24" y="70" fill="#dc2626" font-size="9">SHUTDOWN</text>
+    <text x="80" y="70" fill="#f59e0b" font-size="9">CRITICAL</text>
+    <text x="140" y="70" fill="#eab308" font-size="9">LOW</text>
+    <text x="185" y="70" fill="#22c55e" font-size="9">NORMAL</text>
+    <text x="110" y="90" text-anchor="middle" fill="#64748b" font-size="9">Hystérésis: +10% pour remonter</text>
+  </g>
+</svg>

@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#334155"/></marker>
+    <filter id="s"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+
+  <rect width="1100" height="750" rx="10" fill="#ffffff"/>
+  <rect width="1100" height="48" rx="10" fill="#0f172a"/>
+  <rect y="38" width="1100" height="10" fill="#0f172a"/>
+  <text x="550" y="32" text-anchor="middle" fill="white" font-size="17" font-weight="bold">Schéma Électronique Simplifié — TSAKITSAKY ENERGY v1.0</text>
+
+  <!-- SOLAR PANEL Section -->
+  <rect x="20" y="65" width="250" height="200" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="145" y="85" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">PANNEAU SOLAIRE 12V/50W</text>
+
+  <!-- Panel symbol -->
+  <rect x="60" y="100" width="80" height="50" rx="4" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  <line x1="75" y1="110" x2="75" y2="140" stroke="#92400e" stroke-width="1.5"/>
+  <line x1="95" y1="110" x2="95" y2="140" stroke="#92400e" stroke-width="1.5"/>
+  <line x1="115" y1="110" x2="115" y2="140" stroke="#92400e" stroke-width="1.5"/>
+  <text x="100" y="165" text-anchor="middle" fill="#92400e" font-size="10">V_oc=21V</text>
+
+  <!-- Voltage divider R1/R2 -->
+  <rect x="170" y="100" width="80" height="60" rx="4" fill="white" stroke="#6b7280" stroke-width="1"/>
+  <text x="210" y="118" text-anchor="middle" fill="#374151" font-size="9" font-weight="bold">Div. tension</text>
+  <text x="210" y="133" text-anchor="middle" fill="#6b7280" font-size="9">R1=68kΩ</text>
+  <text x="210" y="148" text-anchor="middle" fill="#6b7280" font-size="9">R2=10kΩ</text>
+  <line x1="140" y1="125" x2="168" y2="125" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="210" y="175" text-anchor="middle" fill="#2563eb" font-size="9" font-weight="bold">→ ADC CH0</text>
+
+  <!-- INA219 #1 -->
+  <rect x="60" y="195" width="100" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="110" y="213" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">INA219 #1</text>
+  <text x="110" y="228" text-anchor="middle" fill="#2563eb" font-size="8">I_panel (I2C)</text>
+  <text x="110" y="250" text-anchor="middle" fill="#2563eb" font-size="9" font-weight="bold">→ ADC CH2</text>
+
+  <!-- BATTERY Section -->
+  <rect x="20" y="285" width="250" height="190" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="145" y="305" text-anchor="middle" fill="#166534" font-size="12" font-weight="bold">BATTERIE 12V / 100Ah</text>
+
+  <!-- Battery symbol -->
+  <rect x="60" y="320" width="60" height="40" rx="3" fill="#22c55e" stroke="#15803d" stroke-width="2"/>
+  <rect x="85" y="312" width="10" height="8" fill="#15803d"/>
+  <text x="63" y="345" fill="white" font-size="12" font-weight="bold">+ −</text>
+  <text x="90" y="375" text-anchor="middle" fill="#166534" font-size="10">Plomb-Acide</text>
+
+  <!-- Voltage divider R3/R4 -->
+  <rect x="170" y="320" width="80" height="60" rx="4" fill="white" stroke="#6b7280" stroke-width="1"/>
+  <text x="210" y="338" text-anchor="middle" fill="#374151" font-size="9" font-weight="bold">Div. tension</text>
+  <text x="210" y="353" text-anchor="middle" fill="#6b7280" font-size="9">R3=39kΩ</text>
+  <text x="210" y="368" text-anchor="middle" fill="#6b7280" font-size="9">R4=10kΩ</text>
+  <line x1="120" y1="340" x2="168" y2="340" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="210" y="395" text-anchor="middle" fill="#2563eb" font-size="9" font-weight="bold">→ ADC CH1</text>
+
+  <!-- INA219 #2 -->
+  <rect x="60" y="410" width="100" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="110" y="428" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">INA219 #2</text>
+  <text x="110" y="443" text-anchor="middle" fill="#2563eb" font-size="8">I_load (I2C)</text>
+  <text x="110" y="463" text-anchor="middle" fill="#2563eb" font-size="9" font-weight="bold">→ ADC CH3</text>
+
+  <!-- MCU -->
+  <g filter="url(#s)">
+    <rect x="340" y="80" width="320" height="470" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <rect x="350" y="90" width="300" height="35" rx="6" fill="#2563eb"/>
+    <text x="500" y="113" text-anchor="middle" fill="white" font-size="14" font-weight="bold">STM32F030F4P6</text>
+
+    <!-- Pin labels left -->
+    <g fill="#94a3b8" font-size="9">
+      <rect x="340" y="145" width="6" height="12" fill="#f59e0b"/><text x="360" y="155">PA0 — ADC CH0 (V_panel)</text>
+      <rect x="340" y="175" width="6" height="12" fill="#22c55e"/><text x="360" y="185">PA1 — ADC CH1 (V_bat)</text>
+      <rect x="340" y="205" width="6" height="12" fill="#f59e0b"/><text x="360" y="215">PA2 — ADC CH2 (I_panel)</text>
+      <rect x="340" y="235" width="6" height="12" fill="#22c55e"/><text x="360" y="245">PA3 — ADC CH3 (I_load)</text>
+      <rect x="340" y="275" width="6" height="12" fill="#a78bfa"/><text x="360" y="285">PA9 — UART TX</text>
+      <rect x="340" y="305" width="6" height="12" fill="#a78bfa"/><text x="360" y="315">PA10 — UART RX</text>
+      <rect x="340" y="345" width="6" height="12" fill="#06b6d4"/><text x="360" y="355">PB6 — I2C SCL</text>
+      <rect x="340" y="375" width="6" height="12" fill="#06b6d4"/><text x="360" y="385">PB7 — I2C SDA</text>
+    </g>
+
+    <!-- Pin labels right -->
+    <g fill="#94a3b8" font-size="9">
+      <text x="640" y="155" text-anchor="end">GPIO PA5 — LOAD 1 (Éclairage)</text><rect x="654" y="145" width="6" height="12" fill="#fbbf24"/>
+      <text x="640" y="185" text-anchor="end">GPIO PA6 — LOAD 2 (Chargeur)</text><rect x="654" y="175" width="6" height="12" fill="#60a5fa"/>
+      <text x="640" y="215" text-anchor="end">GPIO PA7 — LOAD 3 (Radio/TV)</text><rect x="654" y="205" width="6" height="12" fill="#f472b6"/>
+      <text x="640" y="255" text-anchor="end">GPIO PB0 — LED Verte</text><rect x="654" y="245" width="6" height="12" fill="#22c55e"/>
+      <text x="640" y="285" text-anchor="end">GPIO PB1 — LED Orange</text><rect x="654" y="275" width="6" height="12" fill="#f59e0b"/>
+      <text x="640" y="315" text-anchor="end">GPIO PB2 — LED Rouge</text><rect x="654" y="305" width="6" height="12" fill="#ef4444"/>
+      <text x="640" y="355" text-anchor="end">TIM1 CH1 — PWM MPPT</text><rect x="654" y="345" width="6" height="12" fill="#8b5cf6"/>
+      <text x="640" y="385" text-anchor="end">NRST — Bouton Reset</text><rect x="654" y="375" width="6" height="12" fill="#6b7280"/>
+    </g>
+
+    <!-- Internal labels -->
+    <rect x="380" y="420" width="240" height="25" rx="4" fill="#334155"/>
+    <text x="500" y="437" text-anchor="middle" fill="#64748b" font-size="9">FLASH: 16kB | SRAM: 4kB | 48MHz max</text>
+
+    <rect x="380" y="455" width="240" height="25" rx="4" fill="#334155"/>
+    <text x="500" y="472" text-anchor="middle" fill="#64748b" font-size="9">SysTick | NVIC | SWD Debug</text>
+
+    <!-- Power -->
+    <rect x="380" y="495" width="240" height="25" rx="4" fill="#1e3a5f"/>
+    <text x="500" y="512" text-anchor="middle" fill="#60a5fa" font-size="9">VDD = 3.3V (AMS1117) | VSS = GND</text>
+  </g>
+
+  <!-- LOAD MOSFETS -->
+  <g filter="url(#s)">
+    <rect x="730" y="80" width="200" height="140" rx="8" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="830" y="100" text-anchor="middle" fill="#854d0e" font-size="11" font-weight="bold">MOSFET DRIVERS</text>
+
+    <rect x="745" y="110" width="170" height="28" rx="4" fill="white" stroke="#d97706" stroke-width="1"/>
+    <text x="830" y="129" text-anchor="middle" fill="#92400e" font-size="9">Q1 IRF540N → Éclairage 5A</text>
+
+    <rect x="745" y="142" width="170" height="28" rx="4" fill="white" stroke="#2563eb" stroke-width="1"/>
+    <text x="830" y="161" text-anchor="middle" fill="#1e40af" font-size="9">Q2 IRF540N → Chargeur 2A</text>
+
+    <rect x="745" y="174" width="170" height="28" rx="4" fill="white" stroke="#db2777" stroke-width="1"/>
+    <text x="830" y="193" text-anchor="middle" fill="#9d174d" font-size="9">Q3 IRF540N → Radio/TV 3A</text>
+  </g>
+  <line x1="660" y1="155" x2="728" y2="140" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="660" y1="185" x2="728" y2="156" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="660" y1="215" x2="728" y2="186" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- LEDs -->
+  <g filter="url(#s)">
+    <rect x="730" y="250" width="200" height="100" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <text x="830" y="270" text-anchor="middle" fill="#334155" font-size="11" font-weight="bold">LEDs STATUS</text>
+    <circle cx="775" cy="300" r="12" fill="#22c55e" stroke="#15803d" stroke-width="2"/><text x="795" y="305" fill="#334155" font-size="9">Vert (NORMAL)</text>
+    <circle cx="775" cy="325" r="12" fill="#f59e0b" stroke="#d97706" stroke-width="2"/><text x="795" y="330" fill="#334155" font-size="9">Orange (LOW_BAT)</text>
+  </g>
+  <line x1="660" y1="255" x2="728" y2="295" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="660" y1="285" x2="728" y2="320" stroke="#334155" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- UART Output -->
+  <g filter="url(#s)">
+    <rect x="730" y="380" width="200" height="90" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="830" y="400" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="bold">UART 115200</text>
+    <rect x="745" y="410" width="80" height="25" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="785" y="427" text-anchor="middle" fill="#6d28d9" font-size="9">LCD 16x2</text>
+    <rect x="835" y="410" width="80" height="25" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="875" y="427" text-anchor="middle" fill="#6d28d9" font-size="9">SIM800L</text>
+    <text x="830" y="458" text-anchor="middle" fill="#7c3aed" font-size="9">TX(PA9) / RX(PA10)</text>
+  </g>
+  <line x1="660" y1="290" x2="728" y2="420" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- POWER SUPPLY -->
+  <g filter="url(#s)">
+    <rect x="340" y="570" width="320" height="80" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="500" y="592" text-anchor="middle" fill="#991b1b" font-size="11" font-weight="bold">ALIMENTATION</text>
+    <text x="500" y="612" text-anchor="middle" fill="#b91c1c" font-size="10">12V batterie → AMS1117-3.3 → 3.3V MCU</text>
+    <text x="500" y="632" text-anchor="middle" fill="#dc2626" font-size="9">C_in: 10µF + 100nF | C_out: 470µF + 100nF | Diode TVS 30V</text>
+  </g>
+
+  <!-- Connection lines left -->
+  <line x1="250" y1="175" x2="338" y2="155" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="250" y1="395" x2="338" y2="185" stroke="#22c55e" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="160" y1="215" x2="338" y2="215" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="160" y1="430" x2="338" y2="245" stroke="#22c55e" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- Footer -->
+  <rect y="670" width="1100" height="80" fill="#0f172a" rx="0"/>
+  <text x="30" y="695" fill="#94a3b8" font-size="11">BOM: STM32F030 ($0.80) + INA219×2 ($2.00) + IRF540N×4 ($1.20) + AMS1117 ($0.15) + passifs ($1.22) + PCB ($1.50) = $14.15</text>
+  <text x="30" y="715" fill="#64748b" font-size="10">Protection: Diode TVS SMBJ30CA (surtension) | Fusible PTC 8A (surcourant) | MOSFET P-ch (inversion polarité)</text>
+  <text x="30" y="735" fill="#475569" font-size="9">TSAKITSAKY ENERGY v1.0 | Auteur: S. RAZAFINDRAKOTO | 2026 | PCB: 80×60mm FR-4 double face</text>
+</svg>

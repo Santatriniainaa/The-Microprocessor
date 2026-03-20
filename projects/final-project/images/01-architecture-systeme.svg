@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#334155"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/></marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/></marker>
+    <linearGradient id="grad-sun" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#fbbf24"/><stop offset="100%" style="stop-color:#f59e0b"/></linearGradient>
+    <linearGradient id="grad-mcu" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#1e40af"/><stop offset="100%" style="stop-color:#1e3a5f"/></linearGradient>
+    <linearGradient id="grad-bat" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#16a34a"/><stop offset="100%" style="stop-color:#15803d"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.15"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="700" rx="12" fill="#f8fafc"/>
+  <rect x="0" y="0" width="1100" height="56" rx="12" fill="#0f172a"/>
+  <rect x="0" y="40" width="1100" height="16" fill="#0f172a"/>
+  <text x="550" y="36" text-anchor="middle" fill="white" font-size="20" font-weight="bold">TSAKITSAKY ENERGY — Architecture Systeme Complète</text>
+
+  <!-- SOLAR PANEL -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="100" width="180" height="130" rx="10" fill="url(#grad-sun)" stroke="#d97706" stroke-width="2"/>
+    <text x="120" y="90" text-anchor="middle" fill="#92400e" font-size="28">☀</text>
+    <text x="120" y="135" text-anchor="middle" fill="white" font-size="14" font-weight="bold">PANNEAU SOLAIRE</text>
+    <text x="120" y="158" text-anchor="middle" fill="white" font-size="12">12V / 50W</text>
+    <text x="120" y="178" text-anchor="middle" fill="#fef3c7" font-size="11">Polycristallin</text>
+    <text x="120" y="198" text-anchor="middle" fill="#fef3c7" font-size="11">2800h/an ensoleillement</text>
+    <line x1="50" y1="210" x2="190" y2="210" stroke="white" stroke-width="1" opacity="0.3"/>
+    <text x="120" y="222" text-anchor="middle" fill="white" font-size="10">V: 0-25V | I: 0-4A</text>
+  </g>
+
+  <!-- BATTERY -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="310" width="180" height="130" rx="10" fill="url(#grad-bat)" stroke="#15803d" stroke-width="2"/>
+    <text x="120" y="300" text-anchor="middle" fill="#166534" font-size="24">🔋</text>
+    <text x="120" y="345" text-anchor="middle" fill="white" font-size="14" font-weight="bold">BATTERIE</text>
+    <text x="120" y="368" text-anchor="middle" fill="white" font-size="12">12V / 100Ah</text>
+    <text x="120" y="388" text-anchor="middle" fill="#dcfce7" font-size="11">Plomb-Acide Scellée</text>
+    <text x="120" y="408" text-anchor="middle" fill="#dcfce7" font-size="11">1.2 kWh stockage</text>
+    <line x1="50" y1="418" x2="190" y2="418" stroke="white" stroke-width="1" opacity="0.3"/>
+    <text x="120" y="432" text-anchor="middle" fill="white" font-size="10">SOC: 0-100% via OCV</text>
+  </g>
+
+  <!-- MCU CENTRAL -->
+  <g filter="url(#shadow)">
+    <rect x="320" y="120" width="400" height="380" rx="14" fill="url(#grad-mcu)" stroke="#1e3a8a" stroke-width="2.5"/>
+    <rect x="330" y="130" width="380" height="40" rx="6" fill="#2563eb"/>
+    <text x="520" y="156" text-anchor="middle" fill="white" font-size="16" font-weight="bold">ARM Cortex-M0 — STM32F030</text>
+
+    <!-- Internal modules -->
+    <rect x="340" y="185" width="170" height="55" rx="6" fill="#3b82f6" stroke="#60a5fa" stroke-width="1"/>
+    <text x="425" y="208" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ADC 4 canaux</text>
+    <text x="425" y="228" text-anchor="middle" fill="#bfdbfe" font-size="10">12-bit, moyennage 8pts</text>
+
+    <rect x="540" y="185" width="170" height="55" rx="6" fill="#3b82f6" stroke="#60a5fa" stroke-width="1"/>
+    <text x="625" y="208" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ENERGY CALC</text>
+    <text x="625" y="228" text-anchor="middle" fill="#bfdbfe" font-size="10">P, SOC, Bilan net</text>
+
+    <rect x="340" y="255" width="170" height="55" rx="6" fill="#7c3aed" stroke="#a78bfa" stroke-width="1"/>
+    <text x="425" y="278" text-anchor="middle" fill="white" font-size="12" font-weight="bold">FSM 6 états</text>
+    <text x="425" y="298" text-anchor="middle" fill="#ddd6fe" font-size="10">STARTUP→NORMAL→...→SHUTDOWN</text>
+
+    <rect x="540" y="255" width="170" height="55" rx="6" fill="#7c3aed" stroke="#a78bfa" stroke-width="1"/>
+    <text x="625" y="278" text-anchor="middle" fill="white" font-size="12" font-weight="bold">MPPT P&amp;O</text>
+    <text x="625" y="298" text-anchor="middle" fill="#ddd6fe" font-size="10">Perturb &amp; Observe</text>
+
+    <rect x="340" y="325" width="170" height="55" rx="6" fill="#0891b2" stroke="#22d3ee" stroke-width="1"/>
+    <text x="425" y="348" text-anchor="middle" fill="white" font-size="12" font-weight="bold">LOAD CTRL</text>
+    <text x="425" y="368" text-anchor="middle" fill="#cffafe" font-size="10">3 charges par priorité</text>
+
+    <rect x="540" y="325" width="170" height="55" rx="6" fill="#0891b2" stroke="#22d3ee" stroke-width="1"/>
+    <text x="625" y="348" text-anchor="middle" fill="white" font-size="12" font-weight="bold">LOGGER</text>
+    <text x="625" y="368" text-anchor="middle" fill="#cffafe" font-size="10">Ring buffer 128 entrées</text>
+
+    <rect x="340" y="395" width="170" height="55" rx="6" fill="#ea580c" stroke="#fb923c" stroke-width="1"/>
+    <text x="425" y="418" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ALERT / LED</text>
+    <text x="425" y="438" text-anchor="middle" fill="#fed7aa" font-size="10">Vert / Orange / Rouge</text>
+
+    <rect x="540" y="395" width="170" height="55" rx="6" fill="#ea580c" stroke="#fb923c" stroke-width="1"/>
+    <text x="625" y="418" text-anchor="middle" fill="white" font-size="12" font-weight="bold">UART / DISPLAY</text>
+    <text x="625" y="438" text-anchor="middle" fill="#fed7aa" font-size="10">115200 baud, CSV</text>
+
+    <!-- SysTick -->
+    <rect x="340" y="460" width="370" height="28" rx="4" fill="#334155"/>
+    <text x="525" y="480" text-anchor="middle" fill="#94a3b8" font-size="11">SysTick 1kHz → Ctrl 10Hz | Display 1Hz | MPPT 0.1Hz | Log 1/60Hz</text>
+  </g>
+
+  <!-- LOADS -->
+  <g filter="url(#shadow)">
+    <rect x="830" y="100" width="230" height="90" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <circle cx="858" cy="145" r="16" fill="#fbbf24"/>
+    <text x="858" y="150" text-anchor="middle" fill="#92400e" font-size="14">💡</text>
+    <text x="960" y="133" text-anchor="middle" fill="#92400e" font-size="13" font-weight="bold">CHARGE 1 — Éclairage</text>
+    <text x="960" y="153" text-anchor="middle" fill="#a16207" font-size="11">LED 12V / 5W</text>
+    <text x="960" y="173" text-anchor="middle" fill="#ca8a04" font-size="10" font-weight="bold">PRIORITÉ HAUTE</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="830" y="210" width="230" height="90" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="858" cy="255" r="16" fill="#60a5fa"/>
+    <text x="858" y="260" text-anchor="middle" fill="white" font-size="14">📱</text>
+    <text x="960" y="243" text-anchor="middle" fill="#1e40af" font-size="13" font-weight="bold">CHARGE 2 — Chargeur</text>
+    <text x="960" y="263" text-anchor="middle" fill="#1d4ed8" font-size="11">USB 5V / 2A</text>
+    <text x="960" y="283" text-anchor="middle" fill="#2563eb" font-size="10" font-weight="bold">PRIORITÉ MOYENNE</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="830" y="320" width="230" height="90" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+    <circle cx="858" cy="365" r="16" fill="#f472b6"/>
+    <text x="858" y="370" text-anchor="middle" fill="white" font-size="14">📻</text>
+    <text x="960" y="353" text-anchor="middle" fill="#9d174d" font-size="13" font-weight="bold">CHARGE 3 — Radio/TV</text>
+    <text x="960" y="373" text-anchor="middle" fill="#be185d" font-size="11">12V / 10W</text>
+    <text x="960" y="393" text-anchor="middle" fill="#db2777" font-size="10" font-weight="bold">PRIORITÉ BASSE</text>
+  </g>
+
+  <!-- UART OUTPUT -->
+  <g filter="url(#shadow)">
+    <rect x="830" y="440" width="230" height="80" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <text x="945" y="470" text-anchor="middle" fill="#166534" font-size="13" font-weight="bold">UART → LCD 16x2</text>
+    <text x="945" y="490" text-anchor="middle" fill="#15803d" font-size="11">ou Module GSM SIM800L</text>
+    <text x="945" y="507" text-anchor="middle" fill="#22c55e" font-size="10">115200 baud | SMS alertes</text>
+  </g>
+
+  <!-- ARROWS: Solar → MCU -->
+  <line x1="210" y1="145" x2="315" y2="200" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="255" y="162" fill="#d97706" font-size="10" font-weight="bold">ADC CH0+CH2</text>
+
+  <!-- ARROWS: Battery → MCU -->
+  <line x1="210" y1="370" x2="315" y2="300" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <text x="248" y="348" fill="#16a34a" font-size="10" font-weight="bold">ADC CH1+CH3</text>
+
+  <!-- ARROWS: MCU → Loads -->
+  <line x1="720" y1="200" x2="825" y2="145" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="280" x2="825" y2="255" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="340" x2="825" y2="365" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="770" y="178" fill="#334155" font-size="9">GPIO P5</text>
+  <text x="770" y="262" fill="#334155" font-size="9">GPIO P6</text>
+  <text x="770" y="358" fill="#334155" font-size="9">GPIO P7</text>
+
+  <!-- ARROW: MCU → UART -->
+  <line x1="720" y1="430" x2="825" y2="470" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="760" y="442" fill="#16a34a" font-size="9">UART TX/RX</text>
+
+  <!-- LEDs Status -->
+  <g transform="translate(340, 530)">
+    <rect width="370" height="45" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="60" cy="22" r="10" fill="#22c55e"/><text x="60" y="27" text-anchor="middle" fill="white" font-size="8" font-weight="bold">V</text>
+    <text x="100" y="27" fill="#94a3b8" font-size="10">NORMAL</text>
+    <circle cx="175" cy="22" r="10" fill="#f59e0b"/><text x="175" y="27" text-anchor="middle" fill="white" font-size="8" font-weight="bold">O</text>
+    <text x="215" y="27" fill="#94a3b8" font-size="10">LOW_BAT</text>
+    <circle cx="295" cy="22" r="10" fill="#ef4444"/><text x="295" y="27" text-anchor="middle" fill="white" font-size="8" font-weight="bold">R</text>
+    <text x="335" y="27" fill="#94a3b8" font-size="10">CRITICAL</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="610" width="1100" height="90" rx="0" fill="#0f172a"/>
+  <text x="30" y="640" fill="#94a3b8" font-size="12">TSAKITSAKY ENERGY v1.0 | ARM Cortex-M0 @ 48MHz | 16kB Flash, 4kB SRAM</text>
+  <text x="30" y="665" fill="#64748b" font-size="11">Auteur: Santatriniaina RAZAFINDRAKOTO | 20 mars 2026 | Licence: Projet académique</text>
+  <text x="30" y="688" fill="#475569" font-size="10">Composants: STM32F030 + INA219×2 + IRF540N×4 + AMS1117-3.3 | Coût: $20.78 | Prix: $49.90</text>
+</svg>

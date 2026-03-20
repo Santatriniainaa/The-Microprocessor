@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="gsol" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.6"/><stop offset="100%" stop-color="#fbbf24" stop-opacity="0.05"/></linearGradient>
+    <linearGradient id="gbat" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.4"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0.05"/></linearGradient>
+  </defs>
+
+  <rect width="900" height="500" rx="10" fill="#f8fafc"/>
+  <rect width="900" height="44" rx="10" fill="#1e293b"/>
+  <rect y="34" width="900" height="10" fill="#1e293b"/>
+  <text x="450" y="28" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Simulation Journée Type Madagascar — Production Solaire &amp; SOC Batterie</text>
+
+  <!-- Graph area -->
+  <rect x="70" y="60" width="780" height="350" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Grid lines horizontal -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="70" y1="130" x2="850" y2="130"/>
+    <line x1="70" y1="200" x2="850" y2="200"/>
+    <line x1="70" y1="270" x2="850" y2="270"/>
+    <line x1="70" y1="340" x2="850" y2="340"/>
+  </g>
+
+  <!-- Grid lines vertical (every 2h) -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="135" y1="60" x2="135" y2="410"/>
+    <line x1="200" y1="60" x2="200" y2="410"/>
+    <line x1="265" y1="60" x2="265" y2="410"/>
+    <line x1="330" y1="60" x2="330" y2="410"/>
+    <line x1="395" y1="60" x2="395" y2="410"/>
+    <line x1="460" y1="60" x2="460" y2="410"/>
+    <line x1="525" y1="60" x2="525" y2="410"/>
+    <line x1="590" y1="60" x2="590" y2="410"/>
+    <line x1="655" y1="60" x2="655" y2="410"/>
+    <line x1="720" y1="60" x2="720" y2="410"/>
+    <line x1="785" y1="60" x2="785" y2="410"/>
+  </g>
+
+  <!-- Y-axis labels LEFT (Solar Power W) -->
+  <text x="60" y="74" text-anchor="end" fill="#d97706" font-size="9">50W</text>
+  <text x="60" y="130" text-anchor="end" fill="#d97706" font-size="9">40W</text>
+  <text x="60" y="200" text-anchor="end" fill="#d97706" font-size="9">30W</text>
+  <text x="60" y="270" text-anchor="end" fill="#d97706" font-size="9">20W</text>
+  <text x="60" y="340" text-anchor="end" fill="#d97706" font-size="9">10W</text>
+  <text x="60" y="410" text-anchor="end" fill="#d97706" font-size="9">0W</text>
+  <text x="25" y="240" text-anchor="middle" fill="#d97706" font-size="10" font-weight="bold" transform="rotate(-90,25,240)">Puissance Solaire (W)</text>
+
+  <!-- Y-axis labels RIGHT (SOC %) -->
+  <text x="860" y="74" fill="#16a34a" font-size="9">100%</text>
+  <text x="860" y="130" fill="#16a34a" font-size="9">80%</text>
+  <text x="860" y="200" fill="#16a34a" font-size="9">60%</text>
+  <text x="860" y="270" fill="#16a34a" font-size="9">40%</text>
+  <text x="860" y="340" fill="#16a34a" font-size="9">20%</text>
+  <text x="860" y="410" fill="#16a34a" font-size="9">0%</text>
+  <text x="893" y="240" text-anchor="middle" fill="#16a34a" font-size="10" font-weight="bold" transform="rotate(90,893,240)">SOC Batterie (%)</text>
+
+  <!-- X-axis labels (hours) -->
+  <g fill="#64748b" font-size="9" text-anchor="middle">
+    <text x="70" y="425">0h</text>
+    <text x="135" y="425">2h</text>
+    <text x="200" y="425">4h</text>
+    <text x="265" y="425">6h</text>
+    <text x="330" y="425">8h</text>
+    <text x="395" y="425">10h</text>
+    <text x="460" y="425">12h</text>
+    <text x="525" y="425">14h</text>
+    <text x="590" y="425">16h</text>
+    <text x="655" y="425">18h</text>
+    <text x="720" y="425">20h</text>
+    <text x="785" y="425">22h</text>
+    <text x="850" y="425">24h</text>
+  </g>
+
+  <!-- SOLAR POWER CURVE (filled area + line) -->
+  <!-- Solar data: 0,0,0,0,0,1,6,18,34,44,48,50,48,44,34,18,6,1,0,0,0,0,0,0 (W approx) -->
+  <!-- Y scale: 50W = y60, 0W = y410. Per W: 7 pixels -->
+  <polygon fill="url(#gsol)" points="
+    70,410 135,410 200,410 233,410 265,403 298,368
+    330,284 362,200 395,130 427,102 460,76 476,67
+    492,76 525,102 557,130 590,200 622,284 655,368
+    688,403 720,410 753,410 785,410 818,410 850,410
+  " opacity="0.8"/>
+  <polyline fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="
+    70,410 135,410 200,410 233,410 265,403 298,368
+    330,284 362,200 395,130 427,102 460,76 476,67
+    492,76 525,102 557,130 590,200 622,284 655,368
+    688,403 720,410 753,410 785,410 818,410 850,410
+  "/>
+
+  <!-- SOC BATTERY CURVE -->
+  <!-- SOC: starts 40%, drops to 25% at 6am, rises to 95% at 3pm, drops again -->
+  <polygon fill="url(#gbat)" points="
+    70,270 135,284 200,298 233,312 265,319 298,305
+    330,270 362,228 395,186 427,158 460,130 492,116
+    525,109 557,116 590,130 622,158 655,186 688,214
+    720,242 753,270 785,298 818,319 850,333 850,410 70,410
+  " opacity="0.6"/>
+  <polyline fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="
+    70,270 135,284 200,298 233,312 265,319 298,305
+    330,270 362,228 395,186 427,158 460,130 492,116
+    525,109 557,116 590,130 622,158 655,186 688,214
+    720,242 753,270 785,298 818,319 850,333
+  "/>
+
+  <!-- SOC threshold lines -->
+  <line x1="70" y1="340" x2="850" y2="340" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="855" y="337" fill="#ef4444" font-size="8">CRITICAL 10%</text>
+
+  <line x1="70" y1="270" x2="850" y2="270" stroke="#eab308" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="855" y="267" fill="#eab308" font-size="8">LOW_BAT 30%</text>
+
+  <!-- Day/Night zones -->
+  <rect x="70" y="56" width="195" height="10" fill="#1e293b" opacity="0.7" rx="2"/>
+  <text x="168" y="54" text-anchor="middle" fill="#94a3b8" font-size="8">NUIT</text>
+  <rect x="265" y="56" width="390" height="10" fill="#fbbf24" opacity="0.5" rx="2"/>
+  <text x="460" y="54" text-anchor="middle" fill="#92400e" font-size="8">JOUR (6h-18h)</text>
+  <rect x="655" y="56" width="195" height="10" fill="#1e293b" opacity="0.7" rx="2"/>
+  <text x="752" y="54" text-anchor="middle" fill="#94a3b8" font-size="8">NUIT</text>
+
+  <!-- FSM State zones at bottom -->
+  <g transform="translate(70, 435)">
+    <rect x="0" y="0" width="195" height="18" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="98" y="13" text-anchor="middle" fill="#a16207" font-size="8" font-weight="bold">LOW_BAT → CRITICAL</text>
+
+    <rect x="195" y="0" width="95" height="18" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="242" y="13" text-anchor="middle" fill="#166534" font-size="8" font-weight="bold">NORMAL</text>
+
+    <rect x="290" y="0" width="300" height="18" rx="3" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="440" y="13" text-anchor="middle" fill="#166534" font-size="8" font-weight="bold">NORMAL (charge batterie)</text>
+
+    <rect x="590" y="0" width="95" height="18" rx="3" fill="#fef9c3" stroke="#eab308" stroke-width="1"/>
+    <text x="637" y="13" text-anchor="middle" fill="#a16207" font-size="8" font-weight="bold">LOW_BAT</text>
+
+    <rect x="685" y="0" width="95" height="18" rx="3" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+    <text x="732" y="13" text-anchor="middle" fill="#991b1b" font-size="8" font-weight="bold">CRITICAL</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(70, 468)">
+    <line x1="0" y1="8" x2="30" y2="8" stroke="#f59e0b" stroke-width="3"/>
+    <text x="35" y="12" fill="#92400e" font-size="10">Puissance solaire (W)</text>
+    <line x1="200" y1="8" x2="230" y2="8" stroke="#22c55e" stroke-width="3"/>
+    <text x="235" y="12" fill="#166534" font-size="10">SOC batterie (%)</text>
+    <line x1="400" y1="8" x2="430" y2="8" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="435" y="12" fill="#ef4444" font-size="10">Seuil critique</text>
+    <text x="600" y="12" fill="#64748b" font-size="9">Ensoleillement: 2800h/an | Pic: 50W à 12h | Autonomie nuit: ~8h</text>
+  </g>
+</svg>

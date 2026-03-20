@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="s"><feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.1"/></filter>
+  </defs>
+
+  <rect width="1100" height="700" fill="#f8fafc" rx="10"/>
+  <rect width="1100" height="50" fill="#0f172a" rx="10"/><rect y="38" width="1100" height="12" fill="#0f172a"/>
+  <text x="550" y="32" text-anchor="middle" fill="white" font-size="17" font-weight="bold">Circuit Imprimé — Vue des Pistes Cuivre (Bottom Layer) — Simple Face</text>
+
+  <!-- ================================================================
+       CIRCUIT IMPRIME : Pistes cuivre seules (vue bottom, mirrored)
+       Fond = substrat FR-4 brut (jaune-brun)
+       Pistes = cuivre (orange-brun)
+       Pads = cuivre + trou
+       ================================================================ -->
+
+  <g transform="translate(50, 70)">
+    <!-- FR-4 substrate (vue bottom = pistes visibles) -->
+    <rect width="550" height="440" rx="5" fill="#c4a43e" stroke="#8b7730" stroke-width="3"/>
+
+    <!-- Mounting holes -->
+    <circle cx="18" cy="18" r="5.5" fill="none" stroke="#b87333" stroke-width="2.5"/><circle cx="18" cy="18" r="2" fill="#333"/>
+    <circle cx="532" cy="18" r="5.5" fill="none" stroke="#b87333" stroke-width="2.5"/><circle cx="532" cy="18" r="2" fill="#333"/>
+    <circle cx="18" cy="422" r="5.5" fill="none" stroke="#b87333" stroke-width="2.5"/><circle cx="18" cy="422" r="2" fill="#333"/>
+    <circle cx="532" cy="422" r="5.5" fill="none" stroke="#b87333" stroke-width="2.5"/><circle cx="532" cy="422" r="2" fill="#333"/>
+
+    <!-- =========================================================
+         GROUND PLANE (copper fill with clearances)
+         ========================================================= -->
+    <rect x="5" y="5" width="540" height="430" rx="3" fill="#b87333" opacity="0.2"/>
+    <!-- Thermal relief around mounting holes -->
+    <circle cx="18" cy="18" r="10" fill="#c4a43e"/><circle cx="532" cy="18" r="10" fill="#c4a43e"/>
+    <circle cx="18" cy="422" r="10" fill="#c4a43e"/><circle cx="532" cy="422" r="10" fill="#c4a43e"/>
+
+    <!-- =========================================================
+         POWER TRACES — VCC 12V (thick copper)
+         ========================================================= -->
+    <g stroke="#b87333" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 12V rail from J1 Solar -->
+      <path d="M 49,55 L 49,95 L 49,130 L 49,185 L 49,380" id="vcc12"/>
+      <!-- 12V to LDO input -->
+      <path d="M 49,55 L 130,55 L 445,55 L 445,80"/>
+      <!-- 12V to MOSFET drains -->
+      <path d="M 130,55 L 130,130 L 400,130 L 400,160"/>
+      <path d="M 400,130 L 440,130 L 440,160"/>
+      <path d="M 440,130 L 480,130 L 480,160"/>
+      <!-- Battery connection -->
+      <path d="M 130,55 L 130,46"/>
+    </g>
+
+    <!-- =========================================================
+         3.3V RAIL (medium copper)
+         ========================================================= -->
+    <g stroke="#d4943e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- LDO output to MCU VDD -->
+      <path d="M 422,80 L 422,110 L 310,110 L 310,130 L 260,145 L 200,145"/>
+      <!-- 3.3V to pull-ups -->
+      <path d="M 310,110 L 310,300 L 148,300"/>
+      <!-- 3.3V to UART header -->
+      <path d="M 310,110 L 340,110 L 340,50"/>
+      <!-- 3.3V to crystal caps -->
+      <path d="M 200,145 L 160,145 L 155,152"/>
+    </g>
+
+    <!-- =========================================================
+         GND TRACES (thick, forms partial plane)
+         ========================================================= -->
+    <g stroke="#8b6914" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5">
+      <!-- Main GND bus bottom edge -->
+      <path d="M 40,410 L 510,410"/>
+      <!-- GND from J1/J2 -->
+      <path d="M 60,46 L 60,410"/>
+      <path d="M 140,46 L 140,410"/>
+      <!-- GND to MCU VSS -->
+      <path d="M 260,145 L 280,145 L 280,410"/>
+      <!-- GND to LDO -->
+      <path d="M 408,80 L 408,100 L 408,410"/>
+      <!-- GND to MOSFETs source -->
+      <path d="M 407,210 L 407,410"/>
+      <path d="M 447,210 L 447,410"/>
+      <path d="M 487,210 L 487,410"/>
+    </g>
+
+    <!-- =========================================================
+         SIGNAL TRACES — ADC (thin copper)
+         ========================================================= -->
+    <g stroke="#c4843e" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- ADC CH0 : V_panel divider → PA0 -->
+      <path d="M 88,105 L 145,105 L 145,132 L 170,155 L 190,170"/>
+      <!-- ADC CH1 : V_bat divider → PA1 -->
+      <path d="M 88,128 L 150,128 L 150,180 L 165,180 L 190,182"/>
+      <!-- ADC CH2 : I_panel → PA2 -->
+      <path d="M 88,185 L 160,185 L 170,190 L 190,195"/>
+      <!-- ADC CH3 : I_load → PA3 -->
+      <path d="M 88,208 L 155,208 L 190,207"/>
+    </g>
+
+    <!-- =========================================================
+         SIGNAL TRACES — GPIO to MOSFETs
+         ========================================================= -->
+    <g stroke="#c4843e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- PA5 → Q1 Gate -->
+      <path d="M 190,217 L 140,217 L 140,250 L 393,250 L 393,205"/>
+      <!-- PA6 → Q2 Gate -->
+      <path d="M 190,229 L 135,229 L 135,258 L 433,258 L 433,205"/>
+      <!-- PA7 → Q3 Gate -->
+      <path d="M 190,241 L 130,241 L 130,266 L 473,266 L 473,205"/>
+      <!-- MPPT PWM → Q0 Gate -->
+      <path d="M 260,230 L 290,230 L 290,290 L 393,290 L 393,305"/>
+    </g>
+
+    <!-- =========================================================
+         SIGNAL TRACES — UART (thin)
+         ========================================================= -->
+    <g stroke="#8b5cf6" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <!-- PA9 TX → J6 -->
+      <path d="M 260,169 L 295,169 L 295,50 L 320,50"/>
+      <!-- PA10 RX → J6 -->
+      <path d="M 260,181 L 290,181 L 290,56 L 330,56"/>
+    </g>
+
+    <!-- =========================================================
+         SIGNAL TRACES — I2C
+         ========================================================= -->
+    <g stroke="#06b6d4" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <!-- PB6 SCL → pull-up R5 → INA219 -->
+      <path d="M 260,217 L 290,217 L 290,300 L 148,300 L 110,300 L 110,120"/>
+      <!-- PB7 SDA → pull-up R6 → INA219 -->
+      <path d="M 260,229 L 285,229 L 285,325 L 148,325 L 105,325 L 105,200 L 110,200"/>
+    </g>
+
+    <!-- =========================================================
+         SIGNAL TRACES — LED GPIO
+         ========================================================= -->
+    <g stroke="#c4843e" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <!-- PB0 → LED R via R9 -->
+      <path d="M 260,241 L 300,241 L 300,380 L 324,380"/>
+      <!-- PB1 → LED O via R8 -->
+      <path d="M 260,253 L 295,253 L 295,355 L 324,355"/>
+      <!-- NRST → LED V / Reset button -->
+      <path d="M 260,265 L 310,265 L 310,270"/>
+    </g>
+
+    <!-- =========================================================
+         PADS (Through-Hole) — Visible copper annular rings
+         ========================================================= -->
+    <!-- MCU pads (DIP-20) -->
+    <g>
+      <circle cx="190" cy="145" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="145" r="0.9" fill="#333"/>
+      <circle cx="190" cy="157" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="157" r="0.9" fill="#333"/>
+      <circle cx="190" cy="170" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="170" r="0.9" fill="#333"/>
+      <circle cx="190" cy="182" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="182" r="0.9" fill="#333"/>
+      <circle cx="190" cy="195" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="195" r="0.9" fill="#333"/>
+      <circle cx="190" cy="207" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="207" r="0.9" fill="#333"/>
+      <circle cx="190" cy="217" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="217" r="0.9" fill="#333"/>
+      <circle cx="190" cy="229" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="229" r="0.9" fill="#333"/>
+      <circle cx="190" cy="241" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="241" r="0.9" fill="#333"/>
+      <circle cx="190" cy="253" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="190" cy="253" r="0.9" fill="#333"/>
+      <!-- Right side -->
+      <circle cx="260" cy="145" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="145" r="0.9" fill="#333"/>
+      <circle cx="260" cy="157" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="157" r="0.9" fill="#333"/>
+      <circle cx="260" cy="169" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="169" r="0.9" fill="#333"/>
+      <circle cx="260" cy="181" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="181" r="0.9" fill="#333"/>
+      <circle cx="260" cy="193" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="193" r="0.9" fill="#333"/>
+      <circle cx="260" cy="205" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="205" r="0.9" fill="#333"/>
+      <circle cx="260" cy="217" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="217" r="0.9" fill="#333"/>
+      <circle cx="260" cy="229" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="229" r="0.9" fill="#333"/>
+      <circle cx="260" cy="241" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="241" r="0.9" fill="#333"/>
+      <circle cx="260" cy="253" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="260" cy="253" r="0.9" fill="#333"/>
+    </g>
+
+    <!-- MOSFET pads (TO-220 large pads) -->
+    <g>
+      <circle cx="393" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="393" cy="205" r="1.2" fill="#333"/>
+      <circle cx="400" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="400" cy="205" r="1.2" fill="#333"/>
+      <circle cx="407" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="407" cy="205" r="1.2" fill="#333"/>
+
+      <circle cx="433" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="433" cy="205" r="1.2" fill="#333"/>
+      <circle cx="440" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="440" cy="205" r="1.2" fill="#333"/>
+      <circle cx="447" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="447" cy="205" r="1.2" fill="#333"/>
+
+      <circle cx="473" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="473" cy="205" r="1.2" fill="#333"/>
+      <circle cx="480" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="480" cy="205" r="1.2" fill="#333"/>
+      <circle cx="487" cy="205" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="487" cy="205" r="1.2" fill="#333"/>
+
+      <!-- Q0 MPPT -->
+      <circle cx="393" cy="305" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="393" cy="305" r="1.2" fill="#333"/>
+      <circle cx="400" cy="305" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="400" cy="305" r="1.2" fill="#333"/>
+      <circle cx="407" cy="305" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="407" cy="305" r="1.2" fill="#333"/>
+    </g>
+
+    <!-- Connector pads (larger holes) -->
+    <g>
+      <!-- J1 Solar -->
+      <circle cx="40" cy="46" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="40" cy="46" r="1.5" fill="#333"/>
+      <circle cx="60" cy="46" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="60" cy="46" r="1.5" fill="#333"/>
+      <!-- J2 Battery -->
+      <circle cx="120" cy="46" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="120" cy="46" r="1.5" fill="#333"/>
+      <circle cx="140" cy="46" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="140" cy="46" r="1.5" fill="#333"/>
+      <!-- J3-J5 Load -->
+      <circle cx="400" cy="380" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="400" cy="380" r="1.5" fill="#333"/>
+      <circle cx="420" cy="380" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="420" cy="380" r="1.5" fill="#333"/>
+      <circle cx="450" cy="380" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="450" cy="380" r="1.5" fill="#333"/>
+      <circle cx="470" cy="380" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="470" cy="380" r="1.5" fill="#333"/>
+    </g>
+
+    <!-- Resistor pads -->
+    <g>
+      <circle cx="47" cy="105" r="2" fill="#b87333"/><circle cx="47" cy="105" r="0.8" fill="#333"/>
+      <circle cx="88" cy="105" r="2" fill="#b87333"/><circle cx="88" cy="105" r="0.8" fill="#333"/>
+      <circle cx="47" cy="128" r="2" fill="#b87333"/><circle cx="47" cy="128" r="0.8" fill="#333"/>
+      <circle cx="88" cy="128" r="2" fill="#b87333"/><circle cx="88" cy="128" r="0.8" fill="#333"/>
+      <circle cx="47" cy="185" r="2" fill="#b87333"/><circle cx="47" cy="185" r="0.8" fill="#333"/>
+      <circle cx="88" cy="185" r="2" fill="#b87333"/><circle cx="88" cy="185" r="0.8" fill="#333"/>
+      <circle cx="47" cy="208" r="2" fill="#b87333"/><circle cx="47" cy="208" r="0.8" fill="#333"/>
+      <circle cx="88" cy="208" r="2" fill="#b87333"/><circle cx="88" cy="208" r="0.8" fill="#333"/>
+    </g>
+
+    <!-- UART header pads -->
+    <g>
+      <circle cx="320" cy="50" r="1.8" fill="#b87333"/><circle cx="320" cy="50" r="0.7" fill="#333"/>
+      <circle cx="330" cy="50" r="1.8" fill="#b87333"/><circle cx="330" cy="50" r="0.7" fill="#333"/>
+      <circle cx="340" cy="50" r="1.8" fill="#b87333"/><circle cx="340" cy="50" r="0.7" fill="#333"/>
+      <circle cx="350" cy="50" r="1.8" fill="#b87333"/><circle cx="350" cy="50" r="0.7" fill="#333"/>
+    </g>
+
+    <!-- LED pads -->
+    <g>
+      <circle cx="355" cy="330" r="2" fill="#b87333"/><circle cx="355" cy="330" r="0.8" fill="#333"/>
+      <circle cx="365" cy="330" r="2" fill="#b87333"/><circle cx="365" cy="330" r="0.8" fill="#333"/>
+      <circle cx="355" cy="355" r="2" fill="#b87333"/><circle cx="355" cy="355" r="0.8" fill="#333"/>
+      <circle cx="365" cy="355" r="2" fill="#b87333"/><circle cx="365" cy="355" r="0.8" fill="#333"/>
+      <circle cx="355" cy="380" r="2" fill="#b87333"/><circle cx="355" cy="380" r="0.8" fill="#333"/>
+      <circle cx="365" cy="380" r="2" fill="#b87333"/><circle cx="365" cy="380" r="0.8" fill="#333"/>
+    </g>
+
+    <!-- Board outline mirrored text -->
+    <text x="270" y="14" text-anchor="middle" fill="#8b7730" font-size="5">(VUE BOTTOM — IMAGE MIROIR pour gravure)</text>
+    <text x="270" y="435" text-anchor="middle" fill="#8b7730" font-size="5">TSAKITSAKY ENERGY v1.0 — 100×80mm — Simple face</text>
+  </g>
+
+  <!-- ================================================================
+       LEGENDE DES PISTES
+       ================================================================ -->
+  <g transform="translate(650, 70)">
+    <rect width="410" height="350" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1.5" filter="url(#s)"/>
+    <text x="205" y="22" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">Légende — Circuit Imprimé</text>
+    <line x1="10" y1="30" x2="400" y2="30" stroke="#e2e8f0"/>
+
+    <g font-size="9.5">
+      <!-- Power traces -->
+      <line x1="20" y1="48" x2="60" y2="48" stroke="#b87333" stroke-width="5"/><text x="70" y="52" fill="#334155" font-weight="bold">12V VCC (piste 2mm)</text>
+      <line x1="20" y1="68" x2="60" y2="68" stroke="#d4943e" stroke-width="3"/><text x="70" y="72" fill="#334155" font-weight="bold">3.3V rail (piste 1.2mm)</text>
+      <line x1="20" y1="88" x2="60" y2="88" stroke="#8b6914" stroke-width="6" opacity="0.5"/><text x="70" y="92" fill="#334155" font-weight="bold">GND bus (piste 2.5mm + plan)</text>
+
+      <!-- Signal traces -->
+      <line x1="20" y1="115" x2="60" y2="115" stroke="#c4843e" stroke-width="1.5"/><text x="70" y="119" fill="#334155">Signaux ADC (CH0-CH3)</text>
+      <line x1="20" y1="135" x2="60" y2="135" stroke="#c4843e" stroke-width="1.8"/><text x="70" y="139" fill="#334155">GPIO → MOSFETs (PA5-PA7)</text>
+      <line x1="20" y1="155" x2="60" y2="155" stroke="#8b5cf6" stroke-width="1.2"/><text x="70" y="159" fill="#334155">UART TX/RX (PA9, PA10)</text>
+      <line x1="20" y1="175" x2="60" y2="175" stroke="#06b6d4" stroke-width="1.2"/><text x="70" y="179" fill="#334155">I2C SCL/SDA (PB6, PB7)</text>
+      <line x1="20" y1="195" x2="60" y2="195" stroke="#c4843e" stroke-width="1.2"/><text x="70" y="199" fill="#334155">GPIO LED (PB0, PB1)</text>
+
+      <!-- Pads -->
+      <circle cx="40" cy="225" r="3" fill="#b87333" stroke="#8b5e1a" stroke-width="0.5"/><circle cx="40" cy="225" r="1.2" fill="#333"/>
+      <text x="70" y="229" fill="#334155">Pad MOSFET (TO-220 large)</text>
+      <circle cx="40" cy="248" r="2.2" fill="#b87333" stroke="#8b5e1a" stroke-width="0.4"/><circle cx="40" cy="248" r="0.9" fill="#333"/>
+      <text x="70" y="252" fill="#334155">Pad DIP (MCU, resistances)</text>
+      <circle cx="40" cy="271" r="3.5" fill="#b87333" stroke="#8b5e1a" stroke-width="0.6"/><circle cx="40" cy="271" r="1.5" fill="#333"/>
+      <text x="70" y="275" fill="#334155">Pad connecteur (bornier vis)</text>
+
+      <line x1="10" y1="290" x2="400" y2="290" stroke="#e2e8f0"/>
+      <text x="15" y="310" fill="#1e293b" font-size="10" font-weight="bold">Règles de routage :</text>
+      <text x="15" y="325" fill="#64748b" font-size="8.5">• Largeur min piste signal : 0.3mm (12 mil)</text>
+      <text x="15" y="340" fill="#64748b" font-size="8.5">• Largeur piste puissance : 2.0mm (80 mil)</text>
+      <text x="15" y="340" fill="#64748b" font-size="8.5">• Espacement min : 0.3mm (12 mil)</text>
+    </g>
+  </g>
+
+  <!-- Fabrication notes -->
+  <g transform="translate(650, 440)">
+    <rect width="410" height="180" rx="8" fill="#1e293b" filter="url(#s)"/>
+    <text x="205" y="20" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Notes de Fabrication PCB</text>
+    <g fill="#94a3b8" font-size="9">
+      <text x="15" y="42">Méthode artisanale (Madagascar) :</text>
+      <text x="15" y="57" fill="#fbbf24">1. Imprimer ce motif sur papier glacé (laser)</text>
+      <text x="15" y="72" fill="#fbbf24">2. Transfert thermique sur plaque cuivrée</text>
+      <text x="15" y="87" fill="#fbbf24">3. Gravure chimique (FeCl3 ou persulfate)</text>
+      <text x="15" y="102" fill="#fbbf24">4. Perçage des trous (foret 0.8mm + 1.0mm)</text>
+      <text x="15" y="117" fill="#fbbf24">5. Etamage des pistes (étain liquide)</text>
+      <text x="15" y="137">Méthode industrielle :</text>
+      <text x="15" y="152" fill="#22c55e">JLCPCB : $0.50/pce (lot 10) — 5 jours</text>
+      <text x="15" y="167" fill="#22c55e">PCBWay : $1.00/pce (lot 5) — 3 jours</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <rect y="650" width="1100" height="50" fill="#0f172a"/>
+  <text x="550" y="670" text-anchor="middle" fill="#94a3b8" font-size="9">Circuit imprimé TSAKITSAKY ENERGY v1.0 | 100×80mm FR-4 simple face | Cuivre 1oz (35µm) | HASL lead-free</text>
+  <text x="550" y="688" text-anchor="middle" fill="#64748b" font-size="8">Imprimer en miroir pour transfert thermique | (c) 2026 S. RAZAFINDRAKOTO</text>
+</svg>

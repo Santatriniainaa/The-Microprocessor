@@ -129,7 +129,7 @@ The-Microprocessor/
 
 ```bash
 # 1. Cloner le depot
-git clone <url-du-depot>
+git clone https://github.com/Santatriniainaa/The-Microprocessor.git
 
 # 2. Ouvrir Keil uVision
 #    Project → New uVision Project
